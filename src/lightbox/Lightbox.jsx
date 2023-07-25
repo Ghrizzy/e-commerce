@@ -6,16 +6,13 @@ import Image1Thumb from "../images/image-product-1-thumbnail.jpg";
 import Image2Thumb from "../images/image-product-2-thumbnail.jpg";
 import Image3Thumb from "../images/image-product-3-thumbnail.jpg";
 import Image4Thumb from "../images/image-product-4-thumbnail.jpg";
-import Description from "../text-component/Description";
 import Previous from "../images/icon-previous.svg";
 import Next from "../images/icon-next.svg";
+import CloseLightBox from "../images/icon-close.svg";
 import { useState } from "react";
-import Lightbox from "../lightbox/Lightbox";
-
-const Product = () => {
+const Lightbox = () => {
   const [active, setActive] = useState(0);
-  const [show, toggleShow] = useState(false);
-
+  const [show, toggleShow] = useState(true);
   const images = [
     {
       image: Image1,
@@ -54,55 +51,55 @@ const Product = () => {
     }
     setActive(newIndex);
   };
+  const goToSlide = (i) => {
+    setActive(i);
+  };
+
   return (
     <div className="page-view">
-      <div className="product">
-
-        <div className="carousel">
-          <div
+      {show && (
+        <div className="lightbox-main">
+          <div className="carousel">
+            <div
             className="inner"
             style={{ transform: `translate(-${active * 100}%)` }}
-          >
-            {images.map((item, index) => (
-              <div key={index} className="main-image">
-                <img
-                  src={item.image}
-                  width={"100%"}
-                  onClick={() => toggleShow(!show)}
-                />
-              </div>
+            >
+              {images.map((item, index) => (
+                <div key={index} className="light-box-image">
+                  <img src={item.image} width={"100%"} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <img
+            src={Previous}
+            onClick={() => {
+              updateIndex(active - 1);
+            }}
+            className="previous"
+          />
+          <div className="product-thumb">
+            {thumbnail.map((item, i) => (
+              <img key={i} src={item.image} onClick={() => goToSlide(i)} />
             ))}
           </div>
-        </div>
-        <img
-          src={Previous}
-          onClick={() => {
-            updateIndex(active - 1);
-          }}
-          className="prev"
-        />
-        <div className="product-thumb">
-          {thumbnail.map((item, i) => (
-            <img key={i} src={item.image} onClick={() => toggleShow(!show)} />
-          ))}
-        </div>
-        <img
-          src={Next}
-          onClick={() => {
-            updateIndex(active + 1);
-          }}
-          className="next"
-        />
-      </div>
-      <Description />
-
-      {show && (
-        <div className="lightbox-container">
-          <Lightbox />
+          <img
+            src={Next}
+            onClick={() => {
+              updateIndex(active + 1);
+            }}
+            className="forward"
+          />
+          <img
+            src={CloseLightBox}
+            className="closeLightBox"
+            onClick={() => toggleShow(!show)}
+          />
         </div>
       )}
+      {show && <div className="lightbox-background"></div>}
     </div>
   );
 };
 
-export default Product;
+export default Lightbox;
