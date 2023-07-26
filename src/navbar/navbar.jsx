@@ -4,9 +4,9 @@ import Image1Thumb from "../images/image-product-1-thumbnail.jpg";
 import Profileimage from "../images/image-avatar.png";
 import Del from "../images/icon-delete.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { LiaTimesSolid } from "react-icons/Li";
-const Navbar = () => {
+const Navbar = ({ countup }) => {
   const [Show, setShow] = useState(false);
 
   const HandleMouseEnter = () => {
@@ -15,6 +15,12 @@ const Navbar = () => {
   const HandleMouseLeave = () => {
     setShow(false);
   };
+
+  //   const [cartValue, setCartValue] = useState(localStorage.getItem("quantity"))
+  // useEffect(() => {
+  //    setCartValue(cartValue)
+  //   console.log(cartValue)
+  // }, [cartValue]);
 
   return (
     <div>
@@ -52,7 +58,7 @@ const Navbar = () => {
         </div>
         <div className="nav-right">
           <img src={cart} className="cart" />
-          <p className="cart-number">0</p>
+          <p className="cart-number">{countup}</p>
           <img src={Profileimage} className="profie-img" />
         </div>
       </div>

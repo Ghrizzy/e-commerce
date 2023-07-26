@@ -550,6 +550,26 @@
     margin: 0 auto;
     transition: 3s ease-in-out;
   }
+  .forward {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    right: 37.2%;
+    background: white;
+    padding: 10px;
+    border-radius: 100%;
+  }
+  .closeLightBox {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    right: 37.2%;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 100%;
+  }
   .carousel {
     width: 80%;
   }

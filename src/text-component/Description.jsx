@@ -2,6 +2,7 @@ import Cart from "../images/icon-cart-white.svg";
 import { useState } from "react";
 const Description = () => {
   const [count, setCount] = useState(0);
+  localStorage.setItem("quantity", count);
   return (
     <div className="descripion-div">
       <div>
@@ -24,11 +25,23 @@ const Description = () => {
       </div>
       <div className="add-cart">
         <div className="add-delete">
-          <button onClick={() => {count <= 0? setCount(count): setCount(count - 1)}}>-</button>
+          <button
+            onClick={() => {
+              count <= 0 ? setCount(count) : setCount(count - 1);
+            }}
+          >
+            -
+          </button>
           <p>{count}</p>
           <button onClick={() => setCount(count + 1)}>+</button>
         </div>
-        <button className="cart-button">
+        <button
+          onClick={() => {
+           const countup = localStorage.getItem("quantity");
+            console.log(countup);
+          }}
+          className="cart-button"
+        >
           <img src={Cart} className="cart-icon" />
           <p>Add to cart</p>
         </button>
