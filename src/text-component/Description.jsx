@@ -1,15 +1,13 @@
 import Cart from "../images/icon-cart-white.svg";
 import { useState } from "react";
-const Description = () => {
+const Description = (props) => {
   const [count, setCount] = useState(0);
-  localStorage.setItem("quantity", count);
+  const { products, onAdd } = props;
   return (
     <div className="descripion-div">
       <div>
         <p className="company">SNEAKER COMPANY</p>
-        <h1>
-          Fall Limited Edition <br /> Sneakers
-        </h1>
+        <h1>{products.name}</h1>
         <p className="info">
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they&#39;ll withstand anything
@@ -17,7 +15,7 @@ const Description = () => {
         </p>
         <div className="price">
           <div className="price-right">
-            <p className="new-price">$125.00</p>
+            <p className="new-price">${products.price}</p>
             <p className="discount">50%</p>
           </div>
           <p className="actual-price">$250.00</p>
@@ -36,10 +34,7 @@ const Description = () => {
           <button onClick={() => setCount(count + 1)}>+</button>
         </div>
         <button
-          onClick={() => {
-           const countup = localStorage.getItem("quantity");
-            console.log(countup);
-          }}
+          onClick={() =>{ count == 0 ? " " : onAdd()}}
           className="cart-button"
         >
           <img src={Cart} className="cart-icon" />

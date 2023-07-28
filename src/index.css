@@ -349,15 +349,23 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .whole-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    padding: 0 20px;
+  }
+  .page-view {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
   .menu {
     display: none;
   }
   .lightbox-container {
     display: block;
-  }
-
-  .carousel {
-    display: inline-flex;
   }
 
   .prev {
@@ -399,23 +407,16 @@
     align-items: center;
     width: 100%;
   }
-  .page-view {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-top: 40px;
-  }
+
   .product {
     display: flex;
-    width: 70%;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding: 0 2rem;
   }
   .main-image img {
     border-radius: 20px;
+    width: 100%;
   }
   .lightbox-main {
     z-index: 99;
@@ -549,6 +550,16 @@
     /* padding: 30%; */
     margin: 0 auto;
     transition: 3s ease-in-out;
+  }
+  .product {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-image img {
+    border-radius: 20px;
+    width: 80%;
   }
   .forward {
     display: flex;

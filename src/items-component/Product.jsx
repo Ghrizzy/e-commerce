@@ -6,7 +6,6 @@ import Image1Thumb from "../images/image-product-1-thumbnail.jpg";
 import Image2Thumb from "../images/image-product-2-thumbnail.jpg";
 import Image3Thumb from "../images/image-product-3-thumbnail.jpg";
 import Image4Thumb from "../images/image-product-4-thumbnail.jpg";
-import Description from "../text-component/Description";
 import Previous from "../images/icon-previous.svg";
 import Next from "../images/icon-next.svg";
 import { useState } from "react";
@@ -57,7 +56,6 @@ const Product = () => {
   return (
     <div className="page-view">
       <div className="product">
-
         <div className="carousel">
           <div
             className="inner"
@@ -94,13 +92,12 @@ const Product = () => {
           className="next"
         />
       </div>
-      <Description />
 
-      {show && (
+      {/* {show && (
         <div className="lightbox-container">
           <Lightbox />
         </div>
-      )}
+      )} */}
     </div>
   );
 };
