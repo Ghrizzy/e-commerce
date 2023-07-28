@@ -1,8 +1,6 @@
 import Cart from "../images/icon-cart-white.svg";
-import { useState } from "react";
 const Description = (props) => {
-  const [count, setCount] = useState(0);
-  const { products, onAdd } = props;
+  const { products, onAdd, count, setCount } = props;
   return (
     <div className="descripion-div">
       <div>

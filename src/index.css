@@ -290,6 +290,8 @@
 
 .checkout-price {
   font-weight: bolder;
+  font-size: 20px;
+  margin-left: 7px;
 }
 
 .Shopping-Cart button {

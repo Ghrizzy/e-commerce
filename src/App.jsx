@@ -8,6 +8,8 @@ import data from "./data";
 function App() {
   const { products } = data;
   const [cartItems, setCartItems] = useState([]);
+  const [count, setCount] = useState(0);
+
   const onAdd = (product) => {
     const exist = cartItems;
     if (exist) {
@@ -20,16 +22,19 @@ function App() {
     }
   };
   const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
-    } else {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
-    }
+    const exist = cartItems;
+      if (exist) {
+        setCartItems(exist.qty - 1);
+      } else {
+        setCartItems([cartItems, { product, qty: 1 }]);
+      }
+    // if (exist.qty === 1) {
+    //   setCartItems(cartItems.filter((x) => x !== product.id));
+    // } else {
+    //   setCartItems(
+    //      exist.qty - 1 
+    //   );
+    // }
   };
 
   return (
@@ -40,10 +45,11 @@ function App() {
         cartItems={cartItems}
         onAdd={onAdd}
         onRemove={onRemove}
+        count={count}
       />
       <div className="whole-page">
         <Product />
-        <Description products={products} onAdd={onAdd} />
+        <Description products={products} onAdd={onAdd} count={count} setCount={setCount} />
       </div>
     </>
   );
