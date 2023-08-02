@@ -93,11 +93,9 @@ const Product = () => {
         />
       </div>
 
-      {/* {show && (
-        <div className="lightbox-container">
+      {show && (
           <Lightbox />
-        </div>
-      )} */}
+      )}
     </div>
   );
 };

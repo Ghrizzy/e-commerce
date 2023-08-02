@@ -4,12 +4,13 @@ import Profileimage from "../images/image-avatar.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {useState } from "react";
 // import { LiaTimesSolid } from "react-icons/Li";
-const Navbar = () => {
+const Navbar = (props) => {
+  const {count, ShowBasket} = props
   const [Show, setShow] = useState(false);
-
   const HandleMouseEnter = () => {
     setShow(true);
   };
+
   const HandleMouseLeave = () => {
     setShow(false);
   };
@@ -48,8 +49,10 @@ const Navbar = () => {
           {/* // )} */}
         </div>
         <div className="nav-right">
-          <img src={cart} className="cart" />
-          <p className="cart-number">{}</p>
+          <img src={cart} className="cart" 
+          onClick={ShowBasket}
+          />
+          <p className="cart-number">{count}</p>
           <img src={Profileimage} className="profie-img" />
         </div>
       </div>

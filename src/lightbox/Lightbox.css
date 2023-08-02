@@ -1,5 +1,160 @@
-
-@media screen and (min-width: 1024px) {
-  
-  
+.lightbox-view,
+.lightbox-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
+
+.lightbox-view {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+}
+
+.lightbox-main {
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.light-box-image {
+  width: 100%;
+  display: inline-flex;
+}
+
+.light-box-image img {
+  border-radius: 10px;
+}
+.previous {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 45%;
+  left: 30%;
+  background: white;
+  padding: 10px;
+  border-radius: 100%;
+}
+.forward {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 45%;
+  right: 30%;
+  background: white;
+  padding: 10px;
+  border-radius: 100%;
+}
+.closeLightBox {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+  right: 30%;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 100%;
+}
+@media screen and (max-width: 1020px) {
+  .lightbox-view {
+    display: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .lightbox-main {
+    max-width: 600px;
+  }
+  .previous {
+    top: 45%;
+    left: 32%;
+  }
+  .forward {
+   top: 45%;
+    right: 32%;
+  }
+}
+
+/* @media screen and (min-width: 1024px) {
+  
+ 
+
+
+  .lightbox-background {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0.9;
+    transition: 3s ease-in-out;
+    z-index: 99;
+  }
+  .lightbox-container {
+    display: flex;
+    padding: 30%;
+    margin: 0 auto;
+    transition: 3s ease-in-out;
+  }
+  .previous {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    background: white;
+    padding: 10px;
+    border-radius: 100%;
+  }
+  .forward {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    right: 30%;
+    background: white;
+    padding: 10px;
+    border-radius: 100%;
+  }
+  .closeLightBox {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    right: 30%;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 100%;
+  }
+  .lightbox-container {
+    display: block;
+  }
+  .lightbox-main {
+    z-index: 1;
+    display: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .lightbox-container {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    padding: 30%;
+    margin: 0 auto;
+    transition: 3s ease-in-out;
+  }
+  .closeLightBox {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    right: 37.2%;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 100%;
+  }
+} */

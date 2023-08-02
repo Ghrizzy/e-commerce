@@ -9,47 +9,53 @@ function App() {
   const { products } = data;
   const [cartItems, setCartItems] = useState([]);
   const [count, setCount] = useState(0);
+  const [showCart, setShowCart] = useState(false);
+
+  const ShowBasket = () => {
+    setShowCart(
+      !showCart
+    );
+  };
 
   const onAdd = (product) => {
     const exist = cartItems;
     if (exist) {
-      setCartItems(
-         exist.qty + 1 
-        
-      );
+      setCartItems(exist + 1);
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
-  const onRemove = (product) => {
-    const exist = cartItems;
-      if (exist) {
-        setCartItems(exist.qty - 1);
-      } else {
-        setCartItems([cartItems, { product, qty: 1 }]);
-      }
-    // if (exist.qty === 1) {
-    //   setCartItems(cartItems.filter((x) => x !== product.id));
-    // } else {
-    //   setCartItems(
-    //      exist.qty - 1 
-    //   );
-    // }
+  const onRemove = () => {
+    setCartItems([]);
   };
 
   return (
     <>
-      <Navbar />
-      <Basket
-        products={products}
-        cartItems={cartItems}
-        onAdd={onAdd}
-        onRemove={onRemove}
+      <Navbar
         count={count}
+        // shown={shown}
+        // setShown={setShown}
+        ShowBasket={ShowBasket}
       />
+      {showCart && (
+        <Basket
+          products={products}
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          count={count}
+          // shown={shown}
+        />
+      )}
       <div className="whole-page">
         <Product />
-        <Description products={products} onAdd={onAdd} count={count} setCount={setCount} />
+        <Description
+          products={products}
+          onAdd={onAdd}
+          count={count}
+          setCount={setCount}
+          cartItems={cartItems}
+        />
       </div>
     </>
   );

@@ -130,7 +130,7 @@
   align-items: center;
   position: absolute;
   left: 25px;
-  top: 25%;
+  top: 45%;
   background: white;
   padding: 10px;
   border-radius: 100%;
@@ -140,7 +140,7 @@
   align-items: center;
   position: absolute;
   right: 25px;
-  top: 25%;
+  top: 45%;
   background: white;
   padding: 10px;
   border-radius: 100%;
@@ -251,7 +251,7 @@
   gap: 20px;
 }
 .Shopping-Cart {
-  display: none;
+  display: block;
   flex-direction: column;
   background-color: hsl(0, 0%, 100%);
   box-shadow: -0.2px 0.2px 10px 1px hsl(220, 14%, 75%);
@@ -260,6 +260,7 @@
   width: 85%;
   height: 280px;
   margin: 10px 0 0 27px;
+  z-index: 1;
 }
 
 .cart-heading {
@@ -267,6 +268,10 @@
   font-weight: bold;
   padding-bottom: 30px;
   padding: 20px 15px;
+}
+.empty-cart{
+  flex-basis: 70%;
+  padding: 20px;
 }
 .cart-item {
   display: flex;
@@ -308,9 +313,7 @@
 .Shopping-Cart button:hover {
   cursor: pointer;
 }
-.lightbox-container {
-  display: none;
-}
+
 @media screen and (min-width: 768px) {
   .Shopping-Cart {
     width: 85%;
@@ -366,9 +369,6 @@
   .menu {
     display: none;
   }
-  .lightbox-container {
-    display: block;
-  }
 
   .prev {
     display: none;
@@ -420,10 +420,7 @@
     border-radius: 20px;
     width: 100%;
   }
-  .lightbox-main {
-    z-index: 99;
-    /* display: none; */
-  }
+
   /* .main-image1 {
     display: none;
     height: 350px;
@@ -454,6 +451,7 @@
     width: 500px;
     height: 300px;
     display: flex;
+    flex-direction: column;
     margin: 10px 0 0 49%;
     justify-content: center;
   }
@@ -461,7 +459,13 @@
     font-size: 1px;
     font-weight: bold;
     padding: 15px 40px;
+    flex-basis: 0%;
   }
+  .empty-cart{
+    font-size: 25px;
+    height: 200px;
+  padding: 20px 50px;
+}
   .cart-heading p {
     font-size: 20px;
   }
@@ -478,65 +482,7 @@
   .Shopping-Cart button {
     width: 85%;
   }
-  .light-box-image {
-    max-width: 100%;
-    position: relative;
-    display: inline-flex;
-  }
-  .light-box-image img {
-    background-color: black;
-    border-radius: 10px;
-    opacity: 1;
-    position: relative;
-  }
-  .lightbox-background {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    margin: 0 auto;
-    background-color: black;
-    opacity: 0.9;
-    transition: 3s ease-in-out;
-  }
-  .lightbox-container {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    padding: 30%;
-    margin: 0 auto;
-    transition: 3s ease-in-out;
-  }
-  .previous {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 45%;
-    left: 30%;
-    background: white;
-    padding: 10px;
-    border-radius: 100%;
-  }
-  .forward {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 45%;
-    right: 30%;
-    background: white;
-    padding: 10px;
-    border-radius: 100%;
-  }
-  .closeLightBox {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 20%;
-    right: 30%;
-    padding: 10px;
-    border: 2px solid white;
-    border-radius: 100%;
-  }
+
   /* .full-screen{
     background-color: black;
     opacity: 0.9;
@@ -544,15 +490,6 @@
   } */
 }
 @media screen and (min-width: 1440px) {
-  .lightbox-container {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    /* padding: 30%; */
-    margin: 0 auto;
-    transition: 3s ease-in-out;
-  }
   .product {
     display: flex;
     width: 80%;
@@ -561,35 +498,17 @@
   }
   .main-image img {
     border-radius: 20px;
-    width: 80%;
+    max-width: 100%;
   }
-  .forward {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 45%;
-    right: 37.2%;
-    background: white;
-    padding: 10px;
-    border-radius: 100%;
-  }
-  .closeLightBox {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 15%;
-    right: 37.2%;
-    padding: 10px;
-    border: 2px solid white;
-    border-radius: 100%;
-  }
+ 
+
   .carousel {
     width: 80%;
   }
-  .main-image img {
+  /* .main-image img {
     height: auto;
     width: 100%;
-  }
+  } */
   .descripion-div {
     padding-right: 100px;
   }

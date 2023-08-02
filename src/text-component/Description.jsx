@@ -23,7 +23,7 @@ const Description = (props) => {
         <div className="add-delete">
           <button
             onClick={() => {
-              count <= 0 ? setCount(count) : setCount(count - 1);
+              count <= 1 ? setCount(count) : setCount(count - 1);
             }}
           >
             -

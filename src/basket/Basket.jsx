@@ -10,7 +10,11 @@ const Basket = (props) => {
         <p>Cart</p>
       </div>
       <hr />
-      <div>{cartItems.length === 0 && <div>Cart is Empty</div>}</div>
+      <div>
+        {cartItems.length === 0 && (
+          <div className="empty-cart">Cart is Empty</div>
+        )}
+      </div>
       {cartItems.length !== 0 && (
         <>
           <div className="cart-item">
@@ -29,12 +33,13 @@ const Basket = (props) => {
               src={Del}
               onClick={() => {
                 onRemove();
-                console.log("stop clicking");
               }}
             />
           </div>
           <div>
-            <button>Checkout</button>
+            <button onClick={() => alert("Not yet in Stock!!!")}>
+              Checkout
+            </button>
           </div>
         </>
       )}
