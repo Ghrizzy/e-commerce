@@ -269,9 +269,16 @@
   padding-bottom: 30px;
   padding: 20px 15px;
 }
-.empty-cart{
-  flex-basis: 70%;
-  padding: 20px;
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  font-size: 15px;
+  font-weight: 600;
+  color: dimgrey;
+
 }
 .cart-item {
   display: flex;
@@ -383,8 +390,18 @@
     display: block;
     width: 100%;
   }
-  .desktop-navlist ul li a:hover {
+  .desktop-navlist ul li a:hover::before {
     cursor: pointer;
+    width: 100%;
+  }
+  .desktop-navlist ul li a:before {
+    content: " ";
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    top: 250%;
+    background-color: hsl(26, 100%, 55%);
+    transition: 0.3s;
   }
   .nav {
     gap: 20px;
@@ -409,7 +426,11 @@
     align-items: center;
     width: 100%;
   }
-
+  .desktop-navlist ul li a {
+    font-size: 20px;
+    width: 100%;
+    position: relative;
+  }
   .product {
     display: flex;
     flex-direction: column;
@@ -461,11 +482,15 @@
     padding: 15px 40px;
     flex-basis: 0%;
   }
-  .empty-cart{
+  .empty-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 25px;
+    font-weight: 600;
     height: 200px;
-  padding: 20px 50px;
-}
+    color: dimgrey;
+  }
   .cart-heading p {
     font-size: 20px;
   }
@@ -500,7 +525,6 @@
     border-radius: 20px;
     max-width: 100%;
   }
- 
 
   .carousel {
     width: 80%;

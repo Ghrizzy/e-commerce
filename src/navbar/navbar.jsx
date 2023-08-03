@@ -46,7 +46,6 @@ const Navbar = (props) => {
             </div>
             <div className={`${Show ? "transparent" : ""}`}></div>
           </div>
-          {/* // )} */}
         </div>
         <div className="nav-right">
           <img src={cart} className="cart" 
